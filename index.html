@@ -233,19 +233,22 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Introduction</h2>
+        <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-          <b>Large Language Models (LLMs)</b> and <b>Large Multimodal Models (LMMs)</b> exhibit impressive problem-solving skills in many tasks and domains, but their ability in mathematical reasoning in visual contexts has not been systematically studied.
+            Retrieval-Augmented Generation (RAG) is a powerful strategy for improving the factual accuracy of models by retrieving external knowledge relevant to queries and incorporating it into the generation process. However, existing approaches primarily focus on text, with some recent advancements considering images, and they largely overlook videos, a rich source of multimodal knowledge capable of representing contextual details more effectively than any other modality.
           </p>
           <p>
-            To bridge this gap, we present <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
-            <span class="mathvista">MathVista</span>, a benchmark designed to combine challenges from diverse mathematical and visual tasks. It consists of <b>6,141 examples</b>, derived from <b>28 existing multimodal datasets</b> involving mathematics and <b>3 newly created datasets</b> (i.e., <b>IQTest, FunctionQA, and PaperQA</b>). Completing these tasks requires fine-grained, deep visual understanding and compositional reasoning, which all state-of-the-art foundation models find challenging. 
+            While very recent studies explore the use of videos in response generation, they either predefine query-associated videos without retrieval or convert videos into textual descriptions, losing multimodal richness. To tackle these, we introduce <b>VideoRAG</b>, a framework that not only dynamically retrieves videos based on their relevance with queries but also utilizes both visual and textual information.
           </p>
           <p>
-            With <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
-            <span class="mathvista">MathVista</span>, we have conducted <b>a comprehensive, quantitative evaluation of 12 prominent foundation models</b>. The best-performing <b>GPT-4V</b> model achieves an overall accuracy of <b>49.9%</b>, substantially outperforming Bard, the second-best performer, by <b>15.1%</b>. Our in-depth analysis reveals that the superiority of <b>GPT-4V</b> is mainly attributed to its enhanced visual perception and mathematical reasoning. However, <b>GPT-4V</b> still falls short of human performance by <b>10.4%</b>, as it often struggles to understand complex figures and perform rigorous reasoning. This significant gap underscores the critical role that <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
-            <span class="mathvista">MathVista</span> will play in the development of general-purpose AI agents capable of tackling mathematically intensive and visually rich real-world tasks. We further explore the new ability of <b>self-verification</b>, the use of <b>self-consistency</b>, and the  <b>goal-directed multi-turn human-AI dialogues</b>, highlighting the promising potential of GPT-4V for future research. 
+            The operation of VideoRAG is powered by recent <b>Large Video Language Models (LVLMs)</b>, which enable the direct processing of video content to represent it for retrieval and the seamless integration of retrieved videos jointly with queries for response generation.
+          </p>
+          <p>
+            Also, inspired by the fact that the context size of LVLMs may not be sufficient to process all frames in extremely long videos and not all frames are equally important, we introduce a <b>video frame selection mechanism</b> to extract the most informative subset of frames, along with a strategy to extract textual information from videos (as it can aid the understanding of video content) when their subtitles are not available.
+          </p>
+          <p>
+            We experimentally validate the effectiveness of VideoRAG, showcasing that it is superior to relevant baselines.
           </p>
         </div>
       </div>
